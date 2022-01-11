@@ -3,7 +3,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import { Box, styled } from '@mui/system';
 import { Button, TextField, Typography } from '@mui/material';
-import {authenticateSignup} from "../../Service/api"
+import { authenticateSignup } from "../../Service/api"
 
 
 const LoginDialogContent = styled(DialogContent)`
@@ -31,12 +31,19 @@ const ImageBox = styled(Box)`
     justify-content: flex-start;
 `
 
-const LoginBox = styled(Box)`
-    padding: 35px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-`
+const LoginBox = styled(Box)({
+    padding: "35px",
+    display: "flex",
+    flexDirection: "column",
+    flex: "1",
+    '& > *': {
+        marginTop: "20px"
+    }
+
+
+
+})
+
 
 export const LoginButton = styled(Button)`
         margin-top: 20px;
@@ -64,12 +71,12 @@ function Login(props) {
         setLogin(true)
     }
 
-    const signUpUser = async() => {
-       let response = await authenticateSignup();
-       if(!response){
-           return
-       }
-       props.setOpen(false)
+    const signUpUser = async () => {
+        let response = await authenticateSignup();
+        if (!response) {
+            return
+        }
+        props.setOpen(false)
     }
 
     return (
@@ -84,18 +91,17 @@ function Login(props) {
                     </ImageBox>
                     {Login === true ?
                         <LoginBox>
-                            <TextField name="Username" label="Enter Email/Mobile Number" variant="standard" sx={{ marginTop: "20px" }} />
-                            <TextField name="Password" label="Enter Your Password" variant="standard" sx={{ marginTop: "20px" }} />
-                            <Typography sx={{ marginTop: "20px" }}>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</Typography>
+                            <TextField name="Username" label="Enter Email/Mobile Number" variant="standard" />
+                            <TextField name="Password" label="Enter Your Password" variant="standard" />
+                            <Typography>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</Typography>
                             <LoginButton variant="contained">Login</LoginButton>
                             <Typography sx={{
-                                marginTop: "20px",
                                 color: '#878787',
                                 textAlign: "center",
                                 fontSize: "12"
                             }}>OR</Typography>
                             <Button sx={{
-                                marginTop: "20px", textTransform: 'none',
+                                textTransform: 'none',
                                 background: '#fff',
                                 color: '#2874f0',
                                 height: "48",
@@ -103,7 +109,7 @@ function Login(props) {
                                 boxShadow: '0 2px 4px 0 rgb(0 0 0 / 20%)'
                             }}> Request OTP</Button>
                             <Typography onClick={Register} sx={{
-                                marginTop: "20px", margin: 'auto 0 5px 0',
+                                margin: 'auto 0 5px 0',
                                 textAlign: 'center',
                                 color: '#2874f0',
                                 fontWeight: 600,
@@ -113,20 +119,21 @@ function Login(props) {
                         </LoginBox>
                         :
                         <LoginBox>
-                            <TextField name="firstrname" label="Enter Email/Mobile Number" variant="standard" sx={{ marginTop: "20px" }} />
-                            <TextField name="lastname" label="Enter Email/Mobile Number" variant="standard" sx={{ marginTop: "20px" }} />
-                            <TextField name="userrname" label="Enter Email/Mobile Number" variant="standard" sx={{ marginTop: "20px" }} />
-                            <TextField name="email" label="Enter Email/Mobile Number" variant="standard" sx={{ marginTop: "20px" }} />
-                            <TextField name="Password" label="Enter Your Password" variant="standard" sx={{ marginTop: "20px" }} />
-                            <Typography sx={{ marginTop: "20px" }}>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</Typography>
-                            <LoginButton onClick = {() => signUpUser()}>Sign Up</LoginButton>
+                            <TextField name="firstrname" label="Enter Email/Mobile Number" variant="standard" />
+                            <TextField name="lastname" label="Enter Email/Mobile Number" variant="standard" />
+                            <TextField name="userrname" label="Enter Email/Mobile Number" variant="standard" />
+                            <TextField name="email" label="Enter Email/Mobile Number" variant="standard" />
+                            <TextField name="Password" label="Enter Your Password" variant="standard" />
+                            <Typography>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</Typography>
+                            <LoginButton onClick={() => signUpUser()}>Sign Up</LoginButton>
                             <Button sx={{
-                                marginTop: "20px", textTransform: 'none',
+                                textTransform: 'none',
                                 background: '#fff',
                                 color: '#2874f0',
                                 height: "48",
                                 borderRadius: " 2",
-                                boxShadow: '0 2px 4px 0 rgb(0 0 0 / 20%)'}} onClick={Register}> Existing User? Log In</Button>
+                                boxShadow: '0 2px 4px 0 rgb(0 0 0 / 20%)'
+                            }} onClick={Register}> Existing User? Log In</Button>
                         </LoginBox>
                     }
                 </Box>

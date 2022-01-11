@@ -40,7 +40,6 @@ const DetailsBox = styled(Box)({
 
 })
 
-
 function ProductDetail({ match }) {
 
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png'
