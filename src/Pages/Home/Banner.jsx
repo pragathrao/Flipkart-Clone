@@ -1,7 +1,7 @@
 import { Box, styled } from '@mui/system'
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'
-import { bannerData } from '../Constants/data'
+import { bannerData } from '../../Components/Constants/data'
 
 const Img = styled("img")`
     width: 100%;

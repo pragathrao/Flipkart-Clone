@@ -1,12 +1,12 @@
 import { Box, Button, Divider, Typography } from '@mui/material';
-import { display } from '@mui/system';
 import React from 'react'
 import Countdown from 'react-countdown';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import styled from 'styled-components';
-import { products } from '../Constants/data';
-import { MainBox } from '../Styled/Styled';
+import { products } from '../../Components/Constants/data';
+import { MainBox } from '../../Components/Styled/Styled';
+
 
 const ProductBox = styled("div")`
 display: flex;

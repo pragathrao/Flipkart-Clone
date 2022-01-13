@@ -1,10 +1,11 @@
 import { Container, styled, Table, TableBody, TableCell, TableRow, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
-import { MainBox, Text } from '../Styled/Styled.jsx'
+import React, { useContext } from 'react'
+import { MainBox, Text } from '../../Components/Styled/Styled.jsx'
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import { products } from '../Constants/data.js';
+import { products } from '../../Components/Constants/data.js';
 import ImageBox from './ImageBox.jsx';
+import { Context } from '../../Context/CartContext.jsx';
 
 const LeftBox = styled(Box)`
     min-width: 40%;
@@ -24,11 +25,13 @@ font-size: 12px;
 
 `
 
-const OfferIcon = styled(LocalOfferIcon)`
-    font-size: 14px;
-    margin-right: 12px;
-    color: #00cc00
-`
+const OfferIcon = styled(LocalOfferIcon)({
+    fontSize: "14px",
+    marginRight: "12px",
+    color: "#00cc00"
+
+})
+
 
 const DetailsBox = styled(Box)({
     fontSize: "14px",
@@ -42,6 +45,9 @@ const DetailsBox = styled(Box)({
 
 function ProductDetail({ match }) {
 
+
+
+
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png'
     const sellerURL = 'https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50';
 
@@ -53,7 +59,7 @@ function ProductDetail({ match }) {
         <Container maxWidth="xl" sx={{ background: "white", height: "100vh" }}>
             <MainBox display={"flex"} margin={"55px 0px 55px 0px"}>
                 <LeftBox>
-                   <ImageBox image = {Product. detailUrl}/>
+                    <ImageBox image={Product.detailUrl} id={Product.id} />
                 </LeftBox>
                 <RightBox>
                     <Text variant='h4' fontWeight="800" margin="0 0 10px 0" >{Product.title.longTitle}</Text>
@@ -95,7 +101,7 @@ function ProductDetail({ match }) {
                             </TableRow>
                             <TableRow>
                                 <TableCell colSpan={2}>
-                                    <img src={sellerURL} style= {{width: "390px"}} />
+                                    <img src={sellerURL} style={{ width: "390px" }} />
                                 </TableCell>
                             </TableRow>
                             <TableRow>

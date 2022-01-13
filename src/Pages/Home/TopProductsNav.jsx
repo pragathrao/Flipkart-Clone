@@ -1,8 +1,8 @@
 import { Typography } from '@mui/material'
 import { Box, styled } from '@mui/system'
 import React from 'react'
-import { navData } from '../Constants/data'
-import { MainBox } from '../Styled/Styled.jsx'
+import { navData } from '../../Components/Constants/data.js'
+import { MainBox } from '../../Components/Styled/Styled.jsx'
 
 const SubBox = styled(Box)`
     text-align: center;

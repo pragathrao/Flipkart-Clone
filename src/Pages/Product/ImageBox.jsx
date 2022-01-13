@@ -1,6 +1,7 @@
 import { Box, Button } from '@mui/material'
 import { styled } from '@mui/styles'
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../Context/CartContext'
 
 const LeftContainer = {
     padding: "40px auto",
@@ -17,7 +18,15 @@ const Image = {
 }
 
 
-function ImageBox({ image }) {
+function ImageBox(props) {
+
+    const {addToCart} = useContext(Context)
+
+    function AddToCart(id){
+        addToCart(props.id)
+
+    }
+
 
 
     const ActionButton = styled(Button)({
@@ -32,10 +41,10 @@ function ImageBox({ image }) {
 
     return (
         <Box sx={LeftContainer}>
-            <img src={image} style={Image} />
+            <img src={props.image} style={props.Image} />
             <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
-                <ActionButton Background="#ff9f00" Color="White" variant="contained">Add to Cart</ActionButton>
-                <ActionButton Background="#fb641b" Color="White" variant="contained">Buy Now</ActionButton>
+                <ActionButton Background="#ff9f00" Color="White" variant="contained" onClick ={AddToCart}>Add to Cart</ActionButton>
+                <ActionButton Background="#fb641b" Color="White" variant="contained" >Buy Now</ActionButton>
             </Box>
         </Box>
     )

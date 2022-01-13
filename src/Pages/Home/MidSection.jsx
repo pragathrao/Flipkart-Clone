@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/system'
 import React from 'react'
-import { ImageURL } from "../Constants/data"
+import { ImageURL } from '../../Components/Constants/data';
 
 const MidBox = styled(Box)`
     display: flex;

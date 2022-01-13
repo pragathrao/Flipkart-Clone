@@ -3,7 +3,6 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import { Box, styled } from '@mui/system';
 import { Button, TextField, Typography } from '@mui/material';
-import { authenticateSignup } from "../../Service/api"
 
 
 const LoginDialogContent = styled(DialogContent)`
@@ -71,13 +70,13 @@ function Login(props) {
         setLogin(true)
     }
 
-    const signUpUser = async () => {
-        let response = await authenticateSignup();
-        if (!response) {
-            return
-        }
-        props.setOpen(false)
-    }
+    // const signUpUser = async () => {
+    //     let response = await authenticateSignup();
+    //     if (!response) {
+    //         return
+    //     }
+    //     props.setOpen(false)
+    // }
 
     return (
         <LoginDialog open={props.open} onClose={LoginClose}>
@@ -125,7 +124,7 @@ function Login(props) {
                             <TextField name="email" label="Enter Email/Mobile Number" variant="standard" />
                             <TextField name="Password" label="Enter Your Password" variant="standard" />
                             <Typography>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</Typography>
-                            <LoginButton onClick={() => signUpUser()}>Sign Up</LoginButton>
+                            <LoginButton>Sign Up</LoginButton>
                             <Button sx={{
                                 textTransform: 'none',
                                 background: '#fff',
