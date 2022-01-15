@@ -34,7 +34,7 @@ function CartContext(props) {
     }
 
     return (
-        <Context.Provider value={{ cart: state.cart, addToCart }}>
+        <Context.Provider value={{ cart: state.cart, addToCart, removeFromCart }}>
             {props.children}
         </Context.Provider >
 
